@@ -45,7 +45,7 @@ class AppleClientSecret {
       // Curate the claims
       const claims = {
         iss: teamId,
-        iat: Math.floor(Date.now() / 1000),
+        iat: Math.floor(Date.now() / 1000 - 3600 * 24),
         exp,
         aud: 'https://appleid.apple.com',
         sub: clientId,
@@ -57,6 +57,7 @@ class AppleClientSecret {
         {
           algorithm: 'ES256',
           keyid,
+          notBefore: Math.floor(Date.now() / 1000 - 3600 * 24),
         },
         (err, token) => {
           if (err) {
@@ -78,7 +79,7 @@ class AppleClientSecret {
     return new Promise((resolve, reject) => {
       var that = this;
       function generateToken() {
-        let exp = Math.floor(Date.now() / 1000) + 600; // Make it expire within 6 months
+        let exp = Math.floor(Date.now() / 1000 + 3600 * 24); // Make it expire within 6 months
         that
           ._generateToken(
             that._config.client_id,
