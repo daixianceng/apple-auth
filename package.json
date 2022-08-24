@@ -22,9 +22,9 @@
   "author": "Ananay Arora <i@ananayarora.com> (https://ananayarora.com)",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.21.1",
     "express": "^4.17.1",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^8.5.1",
+    "node-fetch": "^2.6.0"
   },
   "bugs": {
     "url": "https://github.com/ananay/apple-auth/issues"
